@@ -20,27 +20,25 @@ public class Date {
 		this.year = year;
 
 	}
-	
-	Date(Date other){
-		
-		
-		if(other!=null){
-		
-		day=other.day;
-		month=other.month;
-		year=other.year;
+
+	Date(Date other) {
+
+		if (other != null) {
+
+			day = other.day;
+			month = other.month;
+			year = other.year;
 		}
-		
-		
+
 	}
 
 	boolean setDate(int day, int month, int year) {
 
-		if (isValidDate(day, month, year) ==true) {
-			
-			this.day=day;
-			this.month=month;
-			this.year=year;
+		if (isValidDate(day, month, year) == true) {
+
+			this.day = day;
+			this.month = month;
+			this.year = year;
 
 			return true;
 
@@ -128,11 +126,48 @@ public class Date {
 		return String.format("%02d.%02d.%04d", day, month, year);
 
 	}
-	
-	boolean isBefore(Date otherDate){
-		
-		
-		
+
+	boolean isBefore(Date otherDate) {
+
+		boolean geber = false;
+
+		if (otherDate.day > day && otherDate.month >= month && otherDate.year >= year) {
+
+			geber = true;
+		}
+
+		if (otherDate.month > month && otherDate.year >= year) {
+
+			geber = true;
+		}
+
+		if (otherDate.year > year) {
+
+			geber = true;
+
+		}
+
+		return geber;
 	}
 
+	Date nextDay() {
+
+		if (isValidDate(day + 1, month, year) == true) {
+
+			return new Date(day + 1, month, year);
+
+		}
+
+		else if (isValidDate(day, month + 1, year) == true) {
+
+			return new Date(day, month + 1, year);
+
+		}
+
+		else {
+
+			return new Date(day, month, year + 1);
+
+		}
+	}
 }

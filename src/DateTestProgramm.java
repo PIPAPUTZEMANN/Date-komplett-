@@ -22,6 +22,14 @@ public class DateTestProgramm {
 		Date testOther=new Date(test1);
 		System.out.println(testOther);
 		
+		Date davor=new Date (22,11,2000);
+		Date danach=new Date (23,11,2000);
+		
+		System.out.println(davor.isBefore(danach));
+		
+		System.out.println(davor.nextDay());
+		System.out.println(davor);
+		
 		
 		
 	}
