@@ -4,16 +4,20 @@ public class Date {
 	private int day;
 	private int month;
 	private int year;
+	static int aObjekte;
 
 	Date() {
 
 		this.day = 1;
 		this.month = 1;
 		this.year = 1970;
-
+	
+		aObjekte++;
 	}
 
 	Date(int day, int month, int year) {
+		
+		this();
 
 		this.day = day;
 		this.month = month;
@@ -23,6 +27,7 @@ public class Date {
 
 	Date(Date other) {
 
+		this();
 		if (other != null) {
 
 			day = other.day;
@@ -33,7 +38,7 @@ public class Date {
 	}
 
 	boolean setDate(int day, int month, int year) {
-
+	
 		if (isValidDate(day, month, year) == true) {
 
 			this.day = day;
@@ -170,4 +175,65 @@ public class Date {
 
 		}
 	}
+
+	public Day getWeekday() {
+
+		Day EnumDay = null;
+		int w;
+
+		if (month < 3) {
+
+			month = month + 12;
+			year = year - 1;
+		}
+
+		w = (day + 2 * month + (3 * month + 3) / 5 + year + year / 4 - year / 100 + year / 400 + 1) % 7;
+
+		switch (w) {
+
+		case 0:
+			EnumDay = Day.Sunday;
+			break;
+
+		case 1:
+			EnumDay = Day.Monday;
+			break;
+
+		case 2:
+			EnumDay = Day.Tuesday;
+			break;
+
+		case 3:
+			EnumDay = Day.Wednesday;
+			break;
+
+		case 4:
+			EnumDay = Day.Thursday;
+			break;
+
+		case 5:
+			EnumDay = Day.Friday;
+			break;
+
+		case 6:
+			EnumDay = Day.Saturday;
+			break;
+
+		}
+		return EnumDay;
+
+	}
+
+	public static int getNumberOfDateObjects() {
+
+		return aObjekte;
+
+	}
+
+	public void finalize() {
+
+		aObjekte--;
+
+	}
+
 }
