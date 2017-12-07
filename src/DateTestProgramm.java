@@ -44,7 +44,7 @@ public class DateTestProgramm {
 		
 		System.out.println(danach.equals(danach));
 		
-		DateFIFO te=new DateFIFO();
+		DateFIFO te=new DateFIFO(0);
 		System.out.println(te.elements.length);
 		
 	
