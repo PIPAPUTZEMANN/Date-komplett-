@@ -11,18 +11,18 @@ public class Date {
 		this.day = 1;
 		this.month = 1;
 		this.year = 1970;
-	
+
 		aObjekte++;
 	}
 
 	Date(int day, int month, int year) {
-		
-		this();
 
+		this();
+		if(isValidDate(day, month, year) == true){
 		this.day = day;
 		this.month = month;
 		this.year = year;
-
+		}
 	}
 
 	Date(Date other) {
@@ -38,7 +38,7 @@ public class Date {
 	}
 
 	boolean setDate(int day, int month, int year) {
-	
+
 		if (isValidDate(day, month, year) == true) {
 
 			this.day = day;
@@ -55,12 +55,12 @@ public class Date {
 
 	}
 
-	static boolean isValidDate(int day, int month, int year) {
+	public boolean isValidDate(int day, int month, int year) {
 
 		boolean validDate = true;
-		int maxDay = 0;
+		int maxDay;
 
-		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) && month == 2) {
+		if ((year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) && month == 2) {
 
 			maxDay = 29;
 
@@ -109,19 +109,19 @@ public class Date {
 				maxDay = 0;
 
 			}
+		}
 
-			if (day > maxDay || day < 0) {
+		if (day > maxDay || day <= 0) {
 
-				validDate = false;
-			}
+			validDate = false;
+		}
 
-			if (year < 1583) {
+		if (year < 1583) {
 
-				validDate = false;
-
-			}
+			validDate = false;
 
 		}
+
 		return validDate;
 
 	}
@@ -163,15 +163,15 @@ public class Date {
 
 		}
 
-		else if (isValidDate(day, month + 1, year) == true) {
+		else if (isValidDate(1, month + 1, year) == true) {
 
-			return new Date(day, month + 1, year);
+			return new Date(1, month + 1, year);
 
 		}
 
 		else {
 
-			return new Date(day, month, year + 1);
+			return new Date(1, 1, year + 1);
 
 		}
 	}
@@ -234,6 +234,22 @@ public class Date {
 
 		aObjekte--;
 
+	}
+	
+	public boolean equals(Object other){
+		
+		if( other instanceof Date){
+			Date neu=new Date();
+			neu=(Date) other;
+		if(neu.day==this.day && neu.month==this.month && neu.year==this.year){
+			
+			return true;
+		}
+			
+			
+		}
+		return false;
+		
 	}
 
 }

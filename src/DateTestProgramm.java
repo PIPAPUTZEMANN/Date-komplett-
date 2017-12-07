@@ -11,7 +11,7 @@ public class DateTestProgramm {
 		System.out.println(test1);
 
 		Date validDateTest = new Date();
-		System.out.println(validDateTest.isValidDate(2, 12, 2003));
+		System.out.println(validDateTest.isValidDate(0, 1, 1970));
 
 		Date setDateTest = new Date(12, 13, 2005);
 		System.out.println(setDateTest.setDate(1, 13, 2012));
@@ -32,11 +32,20 @@ public class DateTestProgramm {
 		System.out.println(DeutscherName.getWeekday().getGermanDay());
 		
 		
+
+	
 		
 		
 		
 		
 		System.out.println(testOther.getNumberOfDateObjects());
+		
+		
+		
+		System.out.println(danach.equals(danach));
+		
+		DateFIFO te=new DateFIFO();
+		System.out.println(te.elements.length);
 		
 	
 		
