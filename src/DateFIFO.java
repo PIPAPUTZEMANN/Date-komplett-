@@ -36,6 +36,40 @@ public class DateFIFO {
 		
 		
 		
+		
+	}
+	
+	public Date pop(){
+		Date ausgabe;
+		boolean hilfe = false;
+		for(int i=0;i<elements.length;i++){
+		if(elements[i]!=null){
+			
+			hilfe=true;
+			
+		}
+		
+		else{
+			
+			hilfe=false;
+		}}
+		
+		if(hilfe==true){
+			ausgabe=elements[0];
+		Date [] ListeVerschieben=new Date[elements.length];
+		System.arraycopy(elements, 1, ListeVerschieben,0,elements.length );
+		elements=ListeVerschieben;
+	
+			
+		}else{
+			
+			ausgabe=null;
+			
+			
+		}
+		
+		return ausgabe;
+		
 	}
 
 }
