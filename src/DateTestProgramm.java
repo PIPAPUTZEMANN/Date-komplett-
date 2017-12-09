@@ -1,10 +1,11 @@
+import java.util.Arrays;
 
 public class DateTestProgramm {
 
 	public static void main(String[] args) {
 		
 		
-		Date test = new Date();
+		Date test = new Date(2,2,2222);
 		System.out.println(test);
 
 		Date test1 = new Date(11, 11, 2017);
@@ -44,10 +45,21 @@ public class DateTestProgramm {
 		
 		System.out.println(danach.equals(danach));
 		
-		DateFIFO te=new DateFIFO(0);
-		System.out.println(te.elements.length);
+		DateFIFO te=new DateFIFO(2);
+		te.push(davor);
+		te.push(danach);
+		te.push(test);
 		
 		
+		System.out.println(Arrays.toString(te.elements));
+		System.out.println(Arrays.toString(te.SpeicherArray));
+		Date rek=te.pop();
+		System.out.println(rek);
+		System.out.print("\n");
+		System.out.println(te.elements[0]);
+		System.out.println(te.elements[1]);
+		System.out.println(te.elements[2]);
+		System.out.println(te.elements[3]);
 		
 		
 	}
