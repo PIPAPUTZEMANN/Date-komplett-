@@ -51,15 +51,27 @@ public class DateTestProgramm {
 		te.push(test);
 		
 		
-		System.out.println(Arrays.toString(te.elements));
-		System.out.println(Arrays.toString(te.SpeicherArray));
-		Date rek=te.pop();
-		System.out.println(rek);
-		System.out.print("\n");
-		System.out.println(te.elements[0]);
-		System.out.println(te.elements[1]);
-		System.out.println(te.elements[2]);
-		System.out.println(te.elements[3]);
+		
+		
+		DateFIFO ret=te.deepCopy();		
+		System.out.println(ret);
+		System.out.println(te);
+		
+//		System.out.println(Arrays.toString(te.elements));
+//	
+//		
+//		
+//		System.out.print("\n");
+//		System.out.println(te.elements[0]);
+//		System.out.println(te.elements[1]);
+//		System.out.println(te.elements[2]);
+//		System.out.println(te.elements[3]);
+//		System.out.print("\n");
+//		
+//		System.out.println(te.find(new Date(danach)));
+//		Date ter=te.peek();
+//		System.out.println(te.peek());
+
 		
 		
 	}
